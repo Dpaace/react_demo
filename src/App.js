@@ -1,24 +1,27 @@
 import logo from './logo.svg';
+import { useState } from 'react';
+import Feedback from './components/Feedback';
+import LeftRIght from './components/LeftRIght';
 import './App.css';
 
-function App() {
+function App({name}) {
+  const [good, setCounter] = useState(0);
+
+  // setTimeout(() => setCounter(counter + 1), 1000)
+  // console.log(`Rendering ${counter} ...`)
+
+  const handleGood = () => {
+    setCounter(good + 1)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <h2>Hello { name  }! </h2>
+    {/* <h3>{ counter }</h3> */}
+    
+    <Feedback/>
+    <LeftRIght/>
+    </>
   );
 }
 
